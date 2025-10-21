@@ -1,0 +1,7 @@
+﻿services:
+  wipshmup3:
+    image: wipshmup3
+    build:
+      context: .
+      dockerfile: Dockerfile
+
