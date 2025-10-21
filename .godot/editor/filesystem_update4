@@ -1,0 +1,11 @@
+res://scripts/stages/BossEncounter.cs
+res://scripts/components/behavior/AttackBehavior.cs
+res://scripts/components/behavior/MovementBehavior.cs
+res://scripts/controllers/PlayerController.cs
+res://scripts/data/BossTemplate.cs
+res://scripts/data/EnemyTemplate.cs
+res://scripts/entities/Bullet.cs
+res://scripts/entities/Enemy.cs
+res://scripts/Main.cs
+res://scripts/stages/StageDefinition.cs
+res://scripts/systems/CombatSystem.cs
