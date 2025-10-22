@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a2ff3f1e-3dfa-4172-8b75-476b737988d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Directory.Build.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/editor_layout.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/editor_layout.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/editor_script_doc_cache.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/ref/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/ref/wipshmup3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/refint/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/refint/wipshmup3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/wipshmup3.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/wipshmup3.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/wipshmup3.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/wipshmup3.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/uid_cache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/uid_cache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/libraries/GdSdk.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Folder.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Folder.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wipshmup3.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/wipshmup3.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wipshmup3.csproj.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wipshmup3.sln" beforeDir="false" afterPath="$PROJECT_DIR$/wipshmup3.sln" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;4t0m15&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/4t0m15/wipshmup3.git&quot;,
+    &quot;accountId&quot;: &quot;8d62d801-db28-4a35-9620-11cf046104dc&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="34POOXmxWhyT4efmxOU0MIkXk96" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "GdScript Start and Debug.Player GDScript.executor": "Debug",
+    "Godot.C:\\Users\\Arsen Martirosyan\\Documents\\GitHub\\wipshmup3\\main.tscn.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Godot.C:\Users\Arsen Martirosyan\Documents\GitHub\wipshmup3\main.tscn">
+    <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
+      <option name="address" value="127.0.0.1" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Editor" type="RunNativeExe" factoryName="Native Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../godotmono/Godot_v4.5.1-stable_mono_win64.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Arsen Martirosyan\Documents\GitHub\wipshmup3" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="GdScript Start and Debug.Player GDScript" />
+      <item itemvalue="Godot.C:\Users\Arsen Martirosyan\Documents\GitHub\wipshmup3\main.tscn" />
+      <item itemvalue="Native Executable.Editor" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a2ff3f1e-3dfa-4172-8b75-476b737988d8" name="Changes" comment="" />
+      <created>1761111711347</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761111711347</updated>
+      <workItem from="1761111713130" duration="269000" />
+      <workItem from="1761112016491" duration="438000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
