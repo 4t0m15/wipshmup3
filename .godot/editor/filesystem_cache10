@@ -1,0 +1,6 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1761109883
+icon.svg::CompressedTexture2D::4182860654486031733::1761105118::1761105124::1::::<><><>0<>0<>cae1ad4e89b67967722bba7405b850ff<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+Main.tscn::PackedScene::6042944253532026687::1761105922::0::1::::<><><>0<>0<><>::uid://caavo3reiemll::::res://Player2D.cs
+Player2D.cs::CSharpScript::4774142922457049361::1761105745::0::1::::<><><>0<>0<><>::
+player.tscn::PackedScene::5700330568672763607::1761108243::0::1::::<><><>0<>0<><>::uid://caavo3reiemll::::res://Player2D.cs

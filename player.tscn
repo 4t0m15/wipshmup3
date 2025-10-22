@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnhju2b18bhe2"]
+
+[ext_resource type="Script" uid="uid://caavo3reiemll" path="res://Player2D.cs" id="1_4flbx"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = ExtResource("1_4flbx")
