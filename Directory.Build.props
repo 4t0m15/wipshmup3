@@ -1,0 +1,8 @@
+﻿<Project>
+    <PropertyGroup>
+        <!-- examples; replace with what you actually need -->
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+</Project>
