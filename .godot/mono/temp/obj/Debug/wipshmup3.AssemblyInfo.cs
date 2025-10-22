@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wipshmup3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca15094bd7486161893afe5412700f4dbe7cb4fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d25a4fd826b6e791676508fe8e8950daaac11c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("wipshmup3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wipshmup3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -16,12 +16,10 @@ public partial class Player : Area2D
 
 	public override void _Process(double delta)
 	{
+		var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		// Track last-pressed axis
 		if (Input.IsActionJustPressed("move_left") || Input.IsActionJustPressed("move_right"))
 			_preferHorizontal = true;
-		if (Input.IsActionJustPressed("move_up") || Input.IsActionJustPressed("move_down"))
-			_preferHorizontal = false;
-
 		// Build direction
 		int xDir = (Input.IsActionPressed("move_right") ? 1 : 0) - (Input.IsActionPressed("move_left") ? 1 : 0);
 		int yDir = (Input.IsActionPressed("move_down")  ? 1 : 0) - (Input.IsActionPressed("move_up")   ? 1 : 0);
@@ -34,18 +32,22 @@ public partial class Player : Area2D
 		}
 
 		var velocity = new Vector2(xDir, yDir);
-		var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-
+		//choose animation so that it chooses which animation it chooses based on key WHILE it is pressed. Its cool now!
+		if (velocity.Y > 0) anim.Animation = "down";
+		else if (velocity.Y < 0) anim.Animation = "up";
+		else if (velocity.X != 0) anim.Animation = "left_right";
+		else anim.Animation = "left_right";
+		
 		if (velocity.X != 0)
 		{
-			anim.Animation = "down";      // <<< add this so it switches off "up"
-			anim.FlipH = velocity.X < 0;
+			//anim.Animation = "down";      // <<< add this so it switches off "up"
+			//anim.FlipH = velocity.X < 0;
 			anim.FlipV = false;
 		}
 		else if (velocity.Y != 0)
 		{
-			anim.Animation = "up";
-			anim.FlipV = velocity.Y > 0; // flip for "down"
+			//anim.Animation = "down";
+			anim.FlipV = false; // DONT flip for "down"
 			anim.FlipH = false;
 		}
 

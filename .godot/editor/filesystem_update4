@@ -9,4 +9,3 @@ res://scripts/controllers/PlayerController.cs
 res://scripts/components/behaviors/MovementBehavior.cs
 res://scripts/data/EnemyTemplate.cs
 res://scripts/stages/BossEncounter.cs
-res://main.tscn
