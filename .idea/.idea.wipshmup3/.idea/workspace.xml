@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0475febb-a4e7-45d6-943b-f1ff7bd6168e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.godot/editor/editor_layout.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/editor_layout.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_update4" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_update4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/mono/metadata/ide_messaging_meta.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/metadata/ide_messaging_meta.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/create_recent.Node" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/create_recent.Node" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/ref/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/ref/wipshmup3.dll" afterDir="false" />
@@ -18,10 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/uid_cache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/uid_cache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player2D.cs.uid" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +130,7 @@
       <workItem from="1761117035419" duration="2498000" />
       <workItem from="1761159396404" duration="607000" />
       <workItem from="1761170580847" duration="1191000" />
-      <workItem from="1761195092960" duration="5664000" />
+      <workItem from="1761195092960" duration="6805000" />
     </task>
     <task id="LOCAL-00001" summary="Error came back, the solution was to let GODOT make the .sln solution file. then i deleted .idea and added a empty scene so I  can start work">
       <option name="closed" value="true" />
@@ -169,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761171766374</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add collision object, add omnimovent. Fix animations. Simplyfy code and remove code execution 80 lines to 50.">
+      <option name="closed" value="true" />
+      <created>1761201160170</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761201160170</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +186,8 @@
     <MESSAGE value="keep goiung with filestructure setup" />
     <MESSAGE value="THE SHIP MOVES AROUND!!! YAY!! I Setup EVERYTHING myself, its mine! Yay!" />
     <MESSAGE value="I fixed movement, next i need to make it so it can move diagonally. Also I think i will find a way to up tickspeed or whatever the godot equavalent is so movement is less choppy." />
-    <option name="LAST_COMMIT_MESSAGE" value="I fixed movement, next i need to make it so it can move diagonally. Also I think i will find a way to up tickspeed or whatever the godot equavalent is so movement is less choppy." />
+    <MESSAGE value="add collision object, add omnimovent. Fix animations. Simplyfy code and remove code execution 80 lines to 50." />
+    <option name="LAST_COMMIT_MESSAGE" value="add collision object, add omnimovent. Fix animations. Simplyfy code and remove code execution 80 lines to 50." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
