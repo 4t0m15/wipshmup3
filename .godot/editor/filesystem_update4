@@ -1,10 +1,10 @@
+res://Player.cs
 res://scripts/autoload/GameState.cs
 res://scripts/systems/CombatSystem.cs
 res://scripts/data/BossTemplate.cs
 res://scripts/GameModes/EndlessMode.cs
 res://scripts/components/behaviors/AttackBehavior.cs
 res://scripts/stages/StageDefinition.cs
-res://Player.cs
 res://scripts/controllers/PlayerController.cs
 res://scripts/components/behaviors/MovementBehavior.cs
 res://scripts/data/EnemyTemplate.cs
