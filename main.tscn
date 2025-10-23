@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://7glbeq4tr08y"]
+[gd_scene load_steps=9 format=3 uid="uid://7glbeq4tr08y"]
 
 [ext_resource type="Script" uid="uid://bx63weg1g4e2o" path="res://Player.cs" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cghdg4bsxeh37" path="res://art/player/Sprite-0001.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bimscwqjo87r0" path="res://art/player/Sprite-0003.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cvrsjn8blbmtr" path="res://art/player/Sprite-0002.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://c3ikyi3o0jtnk" path="res://art/player/Sprite-0002_01.png" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cc0wfj1j1vsw4" path="res://art/player/Sprite-0002_02.png" id="5_272bh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
 animations = [{
@@ -25,6 +27,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_7mycd")
+}],
+"loop": true,
+"name": &"left_right_large",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_272bh")
+}],
+"loop": true,
+"name": &"left_right_small",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_ig7tw")
 }],
 "loop": true,
@@ -32,17 +50,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(3.27, 0.45062506)
+
 [node name="Player" type="Area2D"]
-position = Vector2(223, 44)
+position = Vector2(983, 650)
 script = ExtResource("1_0xm2m")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-55, 1)
 sprite_frames = SubResource("SpriteFrames_7dm0k")
-animation = &"left_right"
+animation = &"left_right_large"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -3)
+position = Vector2(-52.5, -5.53125)
 scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_5vw27")
 disabled = true
