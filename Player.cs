@@ -29,8 +29,7 @@ public partial class Player : Area2D
 		if (velocity != Vector2.Zero) { velocity = velocity.Normalized() * Speed; }
 		else { anim.Stop(); }
 		Position += velocity * (float)delta;
-		//stop player from going off screen
+		//stop player from going off-screen
 		Position = new Vector2(Mathf.Clamp(Position.X, 0, _screenSize.X), Mathf.Clamp(Position.Y, 0, _screenSize.Y));
-		
 	}
 }

@@ -1,9 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1761206350
+::res://::1761285397
 icon.svg::CompressedTexture2D::4182860654486031733::1761105118::1761105124::1::::<><><>0<>0<>cae1ad4e89b67967722bba7405b850ff<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-main.tscn::PackedScene::2259099171809718070::1761118530::0::1::::<><><>0<>0<><>::uid://bx63weg1g4e2o::::res://Player.cs<>uid://cghdg4bsxeh37::::res://art/player/Sprite-0001.png<>uid://bimscwqjo87r0::::res://art/player/Sprite-0003.png<>uid://cvrsjn8blbmtr::::res://art/player/Sprite-0002.png
+main.tscn::PackedScene::2259099171809718070::1761206984::0::1::::<><><>0<>0<><>::uid://bx63weg1g4e2o::::res://Player.cs<>uid://cghdg4bsxeh37::::res://art/player/Sprite-0001.png<>uid://bimscwqjo87r0::::res://art/player/Sprite-0003.png<>uid://cvrsjn8blbmtr::::res://art/player/Sprite-0002.png<>uid://c3ikyi3o0jtnk::::res://art/player/Sprite-0002_01.png<>uid://cc0wfj1j1vsw4::::res://art/player/Sprite-0002_02.png
 Player2D.cs::CSharpScript::5305833459971143930::1761200655::0::1::::<><><>0<>0<><>::
-Player.cs::CSharpScript::4066499381559779132::1761206350::0::1::::<>Area2D<><>0<>0<><>::
+Player.cs::CSharpScript::4066499381559779132::1761285273::0::1::::<>Area2D<><>0<>0<><>::
 readme.md::TextFile::-1::1761111350::0::1::::<><><>0<>0<><>::
 Test.tscn::PackedScene::-1::1761199068::0::1::::<><><>0<>0<><>::
 ::res://addons/::1761199068
@@ -17,7 +17,7 @@ README.md::TextFile::-1::1761199068::0::1::::<><><>0<>0<><>::
 utils.gd::GDScript::5251015809120159908::1761199068::0::1::::<>RefCounted<><>0<>0<><>::
 ::res://art/::1761114645
 ::res://art/background/::1761114885
-::res://art/player/::1761203432
+::res://art/player/::1761207241
 Sprite-0001.png::CompressedTexture2D::5208619464805241860::1761115425::1761115467::1::::<><><>0<>0<>85ab1ad31404f5c7021b1e8ca1492631<>res://.godot/imported/Sprite-0001.png-8c0d321af4b51f701d7548a544a7b9a8.ctex::
 Sprite-0002.png::CompressedTexture2D::6283011217461125343::1761115407::1761115467::1::::<><><>0<>0<>bdc67d5f1a9a8770cc7b46ee364791c8<>res://.godot/imported/Sprite-0002.png-744d67f292dc120f64e817d20a4c42f0.ctex::
 Sprite-0002_01.png::CompressedTexture2D::6755294504376174504::1761203383::1761203432::1::::<><><>0<>0<>82d997adfaebff33eb0abeb2d8430a35<>res://.godot/imported/Sprite-0002_01.png-2b8e2204d02d13a88ce98c41b5b7e227.ctex::

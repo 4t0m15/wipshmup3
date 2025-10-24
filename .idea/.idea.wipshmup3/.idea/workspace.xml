@@ -7,23 +7,44 @@
     <list default="true" id="0475febb-a4e7-45d6-943b-f1ff7bd6168e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.godot/editor/editor_layout.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/editor_layout.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_update4" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_update4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/main.tscn-editstate-3070c538c03ee49b7677ff960a3f5195.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/main.tscn-editstate-3070c538c03ee49b7677ff960a3f5195.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/main.tscn-folding-3070c538c03ee49b7677ff960a3f5195.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/main.tscn-folding-3070c538c03ee49b7677ff960a3f5195.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/script_editor_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/script_editor_cache.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_update4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/project_metadata.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/project_metadata.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/metadata/ide_messaging_meta.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/bin/Debug/wipshmup3.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/ref/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/ref/wipshmup3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/refint/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/refint/wipshmup3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/mono/temp/obj/Debug/wipshmup3.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/uid_cache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/uid_cache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.wipshmup3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/main.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/player/Sprite-0002_01.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/GameModes/EndlessMode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/GameModes/EndlessMode.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/autoload/GameState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/autoload/GameState.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/behaviors/AttackBehavior.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/behaviors/AttackBehavior.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/behaviors/MovementBehavior.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/behaviors/MovementBehavior.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/controllers/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/controllers/PlayerController.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/data/BossTemplate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/data/BossTemplate.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/data/EnemyTemplate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/data/EnemyTemplate.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/stages/BossEncounter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/stages/BossEncounter.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/stages/StageDefinition.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/stages/StageDefinition.cs.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/systems/CombatSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/systems/CombatSystem.cs.uid" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +67,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Arsen Martirosyan/Documents/GitHub/wipshmup3/player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Arsen Martirosyan/Documents/GitHub/wipshmup3/player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/readme.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -139,7 +159,9 @@
       <workItem from="1761159396404" duration="607000" />
       <workItem from="1761170580847" duration="1191000" />
       <workItem from="1761195092960" duration="9939000" />
-      <workItem from="1761205702938" duration="1326000" />
+      <workItem from="1761205702938" duration="1548000" />
+      <workItem from="1761281685362" duration="3806000" />
+      <workItem from="1761285660909" duration="3009000" />
     </task>
     <task id="LOCAL-00001" summary="Error came back, the solution was to let GODOT make the .sln solution file. then i deleted .idea and added a empty scene so I  can start work">
       <option name="closed" value="true" />
@@ -189,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761202377364</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add cool boost system and make code layout more streamlined.">
+      <option name="closed" value="true" />
+      <created>1761207105365</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761207105365</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +235,8 @@
     <MESSAGE value="I fixed movement, next i need to make it so it can move diagonally. Also I think i will find a way to up tickspeed or whatever the godot equavalent is so movement is less choppy." />
     <MESSAGE value="add collision object, add omnimovent. Fix animations. Simplyfy code and remove code execution 80 lines to 50." />
     <MESSAGE value="more dead code removal + better comments. Really trying to avoid the crashes of wipshmup2." />
-    <option name="LAST_COMMIT_MESSAGE" value="more dead code removal + better comments. Really trying to avoid the crashes of wipshmup2." />
+    <MESSAGE value="Add cool boost system and make code layout more streamlined." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add cool boost system and make code layout more streamlined." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
