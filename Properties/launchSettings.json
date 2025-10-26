@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "wipshmup3": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Arsen Martirosyan\\Documents\\Godot_v4.5.1-stable_mono_win64\\Godot_v4.5.1-stable_mono_win64.exe",
+      "commandLineArgs": "--path \"C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\""
+    }
+  }
+}
