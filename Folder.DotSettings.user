@@ -1,7 +1,0 @@
-﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/DotNetCliExePath/@EntryValue">C:\Program Files\dotnet\dotnet.exe</s:String>
-	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolBuilderDuo/CustomGlobalProperties/=SkipExplicitResponseFile/@EntryIndexedValue">True</s:String>
-	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/OutputVerbosityLevel/@EntryValue">Diagnostic</s:String>
-	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/FileVerbosityLevel/@EntryValue">Diagnostic</s:String>
-	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/BuildTool/RecentMonoExePaths/=C_003A_005CUsers_005CArsen_0020Martirosyan_005CDocuments_005Cgodotmono_005CGodot_005Fv4_002E5_002E1_002Dstable_005Fmono_005Fwin64_005Fconsole_002Eexe/@EntryIndexedValue">True</s:Boolean>
-	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MonoExePath/@EntryValue">C:\Users\Arsen Martirosyan\Documents\godotmono\Godot_v4.5.1-stable_mono_win64_console.exe</s:String></wpf:ResourceDictionary>
