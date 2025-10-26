@@ -1,0 +1,81 @@
+﻿using Godot;
+
+public partial class EnemyBullet : Area2D
+{
+    [Export] public float Speed { get; set; } = 300f;
+    [Export] public int Damage { get; set; } = 1;
+
+    // Despawn behavior controls
+    [Export] public bool DespawnOnTimeout { get; set; } = false; // keep bullets by default
+    [Export] public float LifetimeSeconds { get; set; } = 3.0f; // used only if DespawnOnTimeout is true
+    [Export] public bool DespawnOffscreen { get; set; } = false; // keep bullets offscreen by default
+    [Export] public bool DespawnOnHit { get; set; } = false; // pass-through bullets by default
+    
+    private Vector2 _direction = Vector2.Left;
+    private Vector2 _screenSize;
+    
+    public override void _Ready()
+    {
+        _screenSize = GetViewportRect().Size;
+        
+        // Add to enemy bullet group
+        AddToGroup("enemy_bullet");
+        
+        // Connect signals
+        AreaEntered += OnAreaEntered;
+        BodyEntered += OnBodyEntered;
+        
+        // Optional auto-remove after LifetimeSeconds
+        if (DespawnOnTimeout && LifetimeSeconds > 0)
+        {
+            GetTree().CreateTimer(LifetimeSeconds).Timeout += QueueFree;
+        }
+    }
+    
+    public override void _Process(double delta)
+    {
+        Position += _direction * Speed * (float)delta;
+        
+        // Optional: remove if off screen
+        if (DespawnOffscreen)
+        {
+            if (Position.X < -50 || Position.X > _screenSize.X + 50
+                || Position.Y < -50 || Position.Y > _screenSize.Y + 50)
+            {
+                QueueFree();
+            }
+        }
+    }
+    
+    public void SetDirection(Vector2 direction)
+    {
+        _direction = direction.Normalized();
+        Rotation = _direction.Angle();
+    }
+    
+    private void OnAreaEntered(Area2D area)
+    {
+        if (area.IsInGroup("player"))
+        {
+            if (area.HasMethod("TakeDamage"))
+            {
+                area.Call("TakeDamage", Damage);
+            }
+            if (DespawnOnHit)
+                QueueFree();
+        }
+    }
+    
+    private void OnBodyEntered(Node2D body)
+    {
+        if (body.IsInGroup("player"))
+        {
+            if (body.HasMethod("TakeDamage"))
+            {
+                body.Call("TakeDamage", Damage);
+            }
+            if (DespawnOnHit)
+                QueueFree();
+        }
+    }
+}

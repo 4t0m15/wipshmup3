@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8x7k9m2n3p4q"]
+
+[ext_resource type="Script" uid="uid://b8x7k9m2n3p4q" path="res://Enemy.cs" id="1_enemy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(80, 80)
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_enemy")
+Speed = 200.0
+Health = 3
+ScoreValue = 100
+FireRate = 1.5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.8, 0.2, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

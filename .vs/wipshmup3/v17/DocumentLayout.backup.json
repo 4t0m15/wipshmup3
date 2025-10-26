@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\gitattributes .gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:gitattributes .gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\gitignore .gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:gitignore .gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\enemybullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:enemybullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\gitattributes .gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:gitattributes .gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|c:\\users\\arsen martirosyan\\source\\repos\\wipshmup3\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85EEBBF3-B846-456C-A937-B745CA9CF8FA}|wipshmup3.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,16 +42,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T23:33:17.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnemyBullet.cs",
+              "DocumentMoniker": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\EnemyBullet.cs",
+              "RelativeDocumentMoniker": "EnemyBullet.cs",
+              "ToolTip": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\EnemyBullet.cs",
+              "RelativeToolTip": "EnemyBullet.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T23:32:05.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\GameManager.cs",
+              "RelativeDocumentMoniker": "GameManager.cs",
+              "ToolTip": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\GameManager.cs",
+              "RelativeToolTip": "GameManager.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T23:16:19.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "gitattributes .gitattributes",
               "DocumentMoniker": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\gitattributes .gitattributes",
               "RelativeDocumentMoniker": "gitattributes .gitattributes",
               "ToolTip": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\gitattributes .gitattributes",
               "RelativeToolTip": "gitattributes .gitattributes",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-10-26T21:58:18.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-26T21:58:18.966Z"
             },
             {
               "$type": "Document",
@@ -56,13 +106,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Mob.cs",
               "DocumentMoniker": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\Mob.cs",
               "RelativeDocumentMoniker": "Mob.cs",
               "ToolTip": "C:\\Users\\Arsen Martirosyan\\source\\repos\\wipshmup3\\Mob.cs",
               "RelativeToolTip": "Mob.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-26T21:53:55.353Z",
               "EditorCaption": ""

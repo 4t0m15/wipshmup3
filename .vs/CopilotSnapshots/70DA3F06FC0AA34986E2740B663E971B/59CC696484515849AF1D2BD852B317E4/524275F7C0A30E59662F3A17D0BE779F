@@ -1,10 +1,10 @@
-using Godot;
+﻿using Godot;
 public partial class Player : Area2D
 { 
-	[Export] public int Speed { get; set; } =450;
-	[Export] public int Health { get; set; } =3;
+	[Export] public int Speed { get; set; } = 450;
+	[Export] public int Health { get; set; } = 3;
 	[Export] public PackedScene BulletScene { get; set; }
-	[Export] public float FireRate { get; set; } =0.3f;
+	[Export] public float FireRate { get; set; } = 0.3f;
 	//do what c#; linter says
 	private Vector2 _screenSize;
 	private Timer _fireTimer;
@@ -29,24 +29,24 @@ public partial class Player : Area2D
 	{
 		//tell game to play animations based on input
 		var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		if (Input.IsActionJustPressed("move_left")) anim.Animation = "left";
+		if (Input.IsActionJustPressed("move_left"))  anim.Animation = "left";
 		if (Input.IsActionJustPressed("move_right")) anim.Animation = "right";
 		//tell game to set directions
-		int xDir = (Input.IsActionPressed("move_right") ?1 :0) - (Input.IsActionPressed("move_left") ?1 :0);
-		int yDir = (Input.IsActionPressed("move_down") ?1 :0) - (Input.IsActionPressed("move_up") ?1 :0);
+		int xDir = (Input.IsActionPressed("move_right") ? 1 : 0) - (Input.IsActionPressed("move_left") ? 1 : 0);
+		int yDir = (Input.IsActionPressed("move_down")  ? 1 : 0) - (Input.IsActionPressed("move_up")   ? 1 : 0);
 		//set movement speed
 		var velocity = new Vector2(xDir, yDir);
 		if (velocity != Vector2.Zero) { velocity = velocity.Normalized() * Speed; anim.Play(); }
 		else anim.Stop();
 		//set animations
-		if (velocity.X >0) anim.Animation = "right";
-		else if (velocity.X <0) anim.Animation = "left";
+		if (velocity.X > 0) anim.Animation = "right";
+		else if (velocity.X < 0) anim.Animation = "left";
 		else anim.Animation = "up_down";
 		//set speeds
-		if (velocity.X !=0) anim.FlipV = false;
+		if (velocity.X != 0) anim.FlipV = false;
 		Position += velocity * (float)delta;
 		//stop player from going off screen
-		Position = new Vector2(Mathf.Clamp(Position.X,0, _screenSize.X), Mathf.Clamp(Position.Y,0, _screenSize.Y));
+		Position = new Vector2(Mathf.Clamp(Position.X, 0, _screenSize.X), Mathf.Clamp(Position.Y, 0, _screenSize.Y));
 	}
 	
 	private void OnAreaEntered(Area2D area)
@@ -55,7 +55,7 @@ public partial class Player : Area2D
 		if (area.IsInGroup("enemy_bullet"))
 		{
 			TakeDamage(1);
-			// Do NOT free enemy bullets; they should persist
+			area.QueueFree();
 		}
 	}
 	
@@ -89,7 +89,7 @@ public partial class Player : Area2D
 			}
 		}
 		
-		if (Health <=0)
+		if (Health <= 0)
 		{
 			// Player death handled by game manager
 		}
@@ -102,7 +102,7 @@ public partial class Player : Area2D
 		// Create bullet
 		var bullet = BulletScene.Instantiate<Area2D>();
 		GetTree().CurrentScene.AddChild(bullet);
-		bullet.Position = Position + Vector2.Right *30;
+		bullet.Position = Position + Vector2.Right * 30;
 		
 		// Set bullet direction (rightward)
 		if (bullet.HasMethod("SetDirection"))
