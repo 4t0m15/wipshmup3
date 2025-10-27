@@ -7,5 +7,24 @@
   <ItemGroup>
     <None Include="gitattributes .gitattributes" />
     <None Include="gitignore .gitignore" />
+    <None Include="readme.md" />
   </ItemGroup>
+ 
+ <!-- Exclude Benchmark project sources from this -->
+ <ItemGroup>
+   <Compile Remove="BenchmarkSuite1\**\*.cs" />
+   <None Remove="BenchmarkSuite1\**\*" />
+   <EmbeddedResource Remove="BenchmarkSuite1\**\*" />
+   <Content Remove="BenchmarkSuite1\**\*" />
+ </ItemGroup>
+ <ItemGroup>
+   <Folder Include="scripts\autoload\" />
+   <Folder Include="scripts\components\behaviors\" />
+   <Folder Include="scripts\controllers\" />
+   <Folder Include="scripts\data\" />
+   <Folder Include="scripts\Game Modes\" />
+   <Folder Include="scripts\stages\" />
+   <Folder Include="scripts\systems\" />
+   <Folder Include="scripts\ui\" />
+ </ItemGroup>
 </Project>
