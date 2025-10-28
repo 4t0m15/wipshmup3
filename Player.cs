@@ -6,6 +6,10 @@ public partial class Player : Area2D
 	[Export] public float Drag { get; set; } =1200f; // deceleration when no input
 	[Export] public float AnimationSpeed { get; set; } =8f; // frames per second
 
+	// Exports added to match scene properties
+	[Export] public PackedScene? BulletScene { get; set; } = null;
+	[Export] public float FireRate { get; set; } =0.3f;
+
 	private Vector2 _screenSize;
 	private AnimatedSprite2D? _anim;
 	private Sprite2D? _spriteFallback;
@@ -21,6 +25,9 @@ public partial class Player : Area2D
 	private float _manualTimer =0f;
 
 	private Vector2 _velocity = Vector2.Zero;
+
+	// Shooting timer
+	private float _fireTimer =0f;
 
 	public override void _Ready()
 	{
@@ -124,6 +131,31 @@ public partial class Player : Area2D
 
 		// Keep player inside the viewport
 		Position = Position.Clamp(Vector2.Zero, _screenSize);
+
+		// Shooting: auto-fire
+		if (BulletScene != null && FireRate >0f)
+		{
+			_fireTimer -= (float)delta;
+			if (_fireTimer <=0f)
+			{
+				_fireTimer = FireRate;
+				// Instantiate bullet safely
+				if (BulletScene != null)
+				{
+					var inst = BulletScene.Instantiate();
+					if (inst is Node2D node)
+					{
+						node.Position = GlobalPosition + new Vector2(0, -20);
+						// Add to parent's parent (scene root) so bullets are not children of player collision
+						var root = GetTree().CurrentScene;
+						if (root != null)
+							root.AddChild(node);
+						else
+							GetParent()?.AddChild(node);
+					}
+				}
+			}
+		}
 	}
 
 	private void SetManualAnimation(string animName)

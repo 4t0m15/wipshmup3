@@ -72,8 +72,8 @@ public partial class ParallaxController : Node2D
 
 			for (int i =0; i < _layerNodes.Length; i++)
 			{
-				var node = _layerNodes[i];
-				if (node == null) continue;
+				if (_layerNodes[i] is not Node2D node)
+					continue;
 
 				Vector2 scale = DefaultParallax;
 				if (Scales != null && i < Scales.Length)
