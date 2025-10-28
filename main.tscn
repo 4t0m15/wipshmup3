@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7glbeq4tr08y"]
+[gd_scene load_steps=16 format=3 uid="uid://7glbeq4tr08y"]
 
 [ext_resource type="Script" uid="uid://bx63weg1g4e2o" path="res://Player.cs" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cghdg4bsxeh37" path="res://art/player/Sprite-0001.png" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8x7k9m2n3p4q" path="res://enemy.tscn" id="5_enemy_scene"]
 [ext_resource type="PackedScene" uid="uid://c9y8k7m6n5p4q" path="res://enemy_bullet.tscn" id="6_enemy_bullet_scene"]
 [ext_resource type="PackedScene" uid="uid://d0z9l8m7n6p5q" path="res://player_bullet.tscn" id="7_player_bullet_scene"]
+[ext_resource type="Script" uid="uid://parallax_cs" path="res://scripts/systems/ParallaxController.cs" id="8_parallax"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
 animations = [{
@@ -47,6 +48,30 @@ EnemyScene = ExtResource("5_enemy_scene")
 EnemyBulletScene = ExtResource("6_enemy_bullet_scene")
 SpawnRate = 2.0
 PlayerHealth = 3
+
+[node name="Parallax" type="Node2D" parent="."]
+script = ExtResource("8_parallax")
+Layers = [ NodePath("Parallax/LayerFar"), NodePath("Parallax/LayerMid"), NodePath("Parallax/LayerNear") ]
+Scales = [ Vector2(0.2,0.2), Vector2(0.5,0.5), Vector2(0.9,0.9) ]
+TargetPath = NodePath("Player")
+
+[node name="LayerFar" type="Node2D" parent="Parallax"]
+
+[node name="PolyFar" type="Polygon2D" parent="Parallax/LayerFar"]
+polygon = PackedVector2Array( Vector2(-2000, -1000), Vector2(4000, -1000), Vector2(4000,1000), Vector2(-2000,1000) )
+color = Color(0.2,0.4,0.8,1)
+
+[node name="LayerMid" type="Node2D" parent="Parallax"]
+
+[node name="PolyMid" type="Polygon2D" parent="Parallax/LayerMid"]
+polygon = PackedVector2Array( Vector2(-2000, -1000), Vector2(4000, -1000), Vector2(4000,1000), Vector2(-2000,1000) )
+color = Color(0.2,0.6,0.4,1)
+
+[node name="LayerNear" type="Node2D" parent="Parallax"]
+
+[node name="PolyNear" type="Polygon2D" parent="Parallax/LayerNear"]
+polygon = PackedVector2Array( Vector2(-2000, -1000), Vector2(4000, -1000), Vector2(4000,1000), Vector2(-2000,1000) )
+color = Color(0.8,0.6,0.2,1)
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(50, 200)

@@ -24,7 +24,6 @@
    <Folder Include="scripts\data\" />
    <Folder Include="scripts\Game Modes\" />
    <Folder Include="scripts\stages\" />
-   <Folder Include="scripts\systems\" />
    <Folder Include="scripts\ui\" />
  </ItemGroup>
 </Project>
