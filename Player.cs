@@ -156,21 +156,21 @@ public partial class Player : Area2D
 		// Keep player inside the viewport
 		Position = Position.Clamp(Vector2.Zero, _screenSize);
 
-		// Shooting: auto-fire
+		// Shooting: require Space (ui_accept) to fire, rate-limited by FireRate
 		if (BulletScene != null && FireRate >0f)
 		{
-			_fireTimer -= (float)delta;
-			if (_fireTimer <=0f)
+			if (Input.IsActionPressed("ui_accept"))
 			{
-				_fireTimer = FireRate;
-				// Instantiate bullet safely
-				if (BulletScene != null)
+				_fireTimer -= (float)delta;
+				if (_fireTimer <=0f)
 				{
+					_fireTimer = FireRate;
+					// Instantiate bullet safely
 					var inst = BulletScene.Instantiate();
 					if (inst is Node2D node)
 					{
 						node.Position = GlobalPosition + new Vector2(20, 0);
-						// Add to parent's parent (scene root) so bullets are not children of player collision
+						// Add to scene root so bullets aren't children of player collision
 						var root = GetTree().CurrentScene;
 						if (root != null)
 							root.AddChild(node);
@@ -178,6 +178,10 @@ public partial class Player : Area2D
 							GetParent()?.AddChild(node);
 					}
 				}
+			}
+			else
+			{
+				_fireTimer = 0f;
 			}
 		}
 	}
@@ -241,11 +245,8 @@ public partial class Player : Area2D
 		_flashEffect.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
 		AddChild(_flashEffect);
 
-		// Notify GameManager
-		var gameManager = GetTree().GetFirstNodeInGroup("game_manager");
-		if (gameManager != null && gameManager.HasMethod("OnPlayerHit"))
-		{
-			gameManager.Call("OnPlayerHit");
-		}
+		// Notify GameManager (autoload)
+		var gameManager = GetNodeOrNull<GameManager>("/root/GameManager");
+		gameManager?.OnPlayerHit();
 	}
 }

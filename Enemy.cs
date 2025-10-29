@@ -20,13 +20,13 @@ public partial class Enemy : Area2D
 		AddToGroup("enemies");
 		
 		// Set up collision detection
-		AreaEntered += OnAreaEntered;
+		// Removed unused AreaEntered handler
 		
-		// Get bullet scene from GameManager
-		var gameManager = GetTree().GetFirstNodeInGroup("game_manager");
-		if (gameManager != null && gameManager.HasMethod("GetEnemyBulletScene"))
+		// Get bullet scene from GameManager autoload
+		var gameManager = GetNodeOrNull<GameManager>("/root/GameManager");
+		if (gameManager != null)
 		{
-			_bulletScene = gameManager.Call("GetEnemyBulletScene").AsGodotObject() as PackedScene;
+			_bulletScene = gameManager.GetEnemyBulletScene();
 		}
 		
 		// Get visual component
@@ -71,15 +71,7 @@ public partial class Enemy : Area2D
 		}
 	}
 
-	private void OnAreaEntered(Area2D area)
-	{
-		// Check if it's a player bullet
-		if (area.IsInGroup("player_bullets"))
-		{
-			// The bullet will handle damage via TakeDamage method
-			// We don't need to check health here since TakeDamage handles destruction
-		}
-	}
+	// Removed unused OnAreaEntered handler
 
 	public void TakeDamage(int damage)
 	{
@@ -103,31 +95,16 @@ public partial class Enemy : Area2D
 	{
 		GD.Print($"Enemy: Destroy() called! Score value: {ScoreValue}");
 		
-		// Create explosion effect
-		var explosion = new ColorRect();
-		explosion.Color = new Color(1f, 0.5f, 0f, 1f); // Orange explosion
-		explosion.Size = new Vector2(120f, 120f);
-		explosion.Position = GlobalPosition - new Vector2(60f, 60f);
-		GetTree().CurrentScene.AddChild(explosion);
-		
-		// Remove explosion after short time
-		var timer = new Godot.Timer();
-		timer.WaitTime = 0.2f;
-		timer.OneShot = true;
-		timer.Timeout += () => explosion.QueueFree();
-		explosion.AddChild(timer);
-		timer.Start();
-		
 		// Notify GameManager for score
-		var gameManager = GetTree().GetFirstNodeInGroup("game_manager");
-		if (gameManager != null && gameManager.HasMethod("OnEnemyDestroyed"))
+		var gameManager = GetNodeOrNull<GameManager>("/root/GameManager");
+		if (gameManager != null)
 		{
 			GD.Print("Enemy: Calling GameManager.OnEnemyDestroyed");
-			gameManager.Call("OnEnemyDestroyed", ScoreValue);
+			gameManager.OnEnemyDestroyed(ScoreValue);
 		}
 		else
 		{
-			GD.PrintErr("Enemy: GameManager not found or OnEnemyDestroyed method not available!");
+			GD.PrintErr("Enemy: GameManager autoload not found!");
 		}
 		
 		QueueFree();

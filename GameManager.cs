@@ -28,8 +28,14 @@ public partial class GameManager : Node
 		_currentHealth = PlayerHealth;
 		AddToGroup("game_manager");
 		
-		// Find HUD
-		_hud = GetNodeOrNull<HUD>("../HUD");
+		// Self-load default scenes if not set (autoload can't set exports via scene)
+		if (EnemyScene == null)
+			EnemyScene = ResourceLoader.Load<PackedScene>("res://enemy.tscn");
+		if (EnemyBulletScene == null)
+			EnemyBulletScene = ResourceLoader.Load<PackedScene>("res://enemy_bullet.tscn");
+		
+		// Find HUD from current scene
+		_hud = GetTree().CurrentScene?.GetNodeOrNull<HUD>("HUD");
 		
 		// Debug: Check if HUD was found
 		if (_hud == null)
@@ -43,6 +49,11 @@ public partial class GameManager : Node
 		
 		// Start spawning timer
 		_spawnTimer = SpawnRate;
+
+		// Initialize HUD with current values
+		UpdateHealth();
+		UpdateScore();
+		HideGameOver();
 	}
 
 	public override void _Process(double delta)

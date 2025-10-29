@@ -28,7 +28,11 @@ project/assembly_name="wipshmup3"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[autoload]
+
+GameManager="*res://GameManager.cs"
 
 [input]
 
