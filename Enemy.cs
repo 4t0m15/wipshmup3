@@ -10,7 +10,7 @@ public partial class Enemy : Area2D
 	private Vector2 _screenSize;
 	private float _fireTimer = 0f;
 	private PackedScene? _bulletScene;
-	private ColorRect? _visual;
+	private CanvasItem? _visual;
 	private bool _isFlashing = false;
 	private float _flashTimer = 0f;
 
@@ -29,8 +29,8 @@ public partial class Enemy : Area2D
 			_bulletScene = gameManager.GetEnemyBulletScene();
 		}
 		
-		// Get visual component
-		_visual = GetNodeOrNull<ColorRect>("ColorRect");
+		// Get visual component (prefer Sprite2D, fallback to ColorRect)
+		_visual = GetNodeOrNull<CanvasItem>("Sprite2D") ?? GetNodeOrNull<CanvasItem>("ColorRect");
 		
 		// Start firing timer
 		_fireTimer = FireRate;
@@ -49,7 +49,7 @@ public partial class Enemy : Area2D
 			{
 				_isFlashing = false;
 				if (_visual != null)
-					_visual.Color = new Color(0.8f, 0.2f, 0.2f, 1f); // Back to normal red
+					_visual.Modulate = new Color(1f, 1f, 1f, 1f); // Back to normal tint
 			}
 		}
 		
@@ -82,7 +82,7 @@ public partial class Enemy : Area2D
 		_isFlashing = true;
 		_flashTimer = 0.1f;
 		if (_visual != null)
-			_visual.Color = new Color(1f, 0f, 0f, 1f); // Bright red flash
+			_visual.Modulate = new Color(1f, 0f, 0f, 1f); // Bright red flash
 		
 		if (Health <= 0)
 		{

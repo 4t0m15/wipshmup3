@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0z9l8m7n6p5q"]
+[gd_scene load_steps=3 format=3 uid="uid://d0z9l8m7n6p5q"]
 
 [ext_resource type="Script" path="res://PlayerBullet.cs" id="1_bullet"]
+[ext_resource type="Texture2D" path="res://art/bullets/shooting laser-sheet.png" id="2_bullet_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]
 size = Vector2(8, 16)
@@ -18,6 +19,11 @@ offset_top = -8.0
 offset_right = 4.0
 offset_bottom = 8.0
 color = Color(0.2, 0.8, 1, 1)
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bullet_tex")
+scale = Vector2(0.25, 0.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bullet")

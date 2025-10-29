@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8x7k9m2n3p4q"]
+[gd_scene load_steps=3 format=3 uid="uid://b8x7k9m2n3p4q"]
 
 [ext_resource type="Script" path="res://Enemy.cs" id="1_enemy"]
+[ext_resource type="Texture2D" path="res://art/enemy/Sprite-0001.png" id="2_enemy_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(80, 80)
@@ -20,6 +21,11 @@ offset_top = -40.0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.8, 0.2, 0.2, 1)
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_enemy_tex")
+scale = Vector2(0.30, 0.30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1")

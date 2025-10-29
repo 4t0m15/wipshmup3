@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c9y8k7m6n5p4q"]
+[gd_scene load_steps=3 format=3 uid="uid://c9y8k7m6n5p4q"]
 
 [ext_resource type="Script" path="res://EnemyBullet.cs" id="1_bullet"]
+[ext_resource type="Texture2D" path="res://art/bullets/shooting laser-sheet.png" id="2_bullet_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]
 size = Vector2(8, 16)
@@ -18,6 +19,11 @@ offset_top = -8.0
 offset_right = 4.0
 offset_bottom = 8.0
 color = Color(1, 0.2, 0.2, 1)
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bullet_tex")
+scale = Vector2(0.25, 0.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bullet")

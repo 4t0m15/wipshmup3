@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://scene_enemy_001" path="res://enemy.tscn" id="5_enemy_scene"]
 [ext_resource type="PackedScene" uid="uid://scene_enemy_bullet_001" path="res://enemy_bullet.tscn" id="6_enemy_bullet_scene"]
 [ext_resource type="PackedScene" uid="uid://scene_player_bullet_001" path="res://player_bullet.tscn" id="7_player_bullet_scene"]
-[ext_resource type="Script" uid="uid://cm4tpgey6wjuc" path="res://scripts/systems/ParallaxController.cs" id="8_parallax"]
+[ext_resource type="Script" path="res://scripts/systems/AutoScrollParallax.cs" id="auto_parallax"]
 [ext_resource type="Script" path="res://HUD.cs" id="9_hud"]
 [ext_resource type="Texture2D" uid="uid://brl03453dspdy" path="res://art/background/ruralparallaxsky.png" id="9_sky"]
 [ext_resource type="Texture2D" uid="uid://b8x7k9m2n3p4q" path="res://art/background/ruralparallaxmountainback2.png" id="10_mountain_back2"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dr3o6gxtxah4t" path="res://art/background/ruralparallaxvillage.png" id="14_village"]
 [ext_resource type="Texture2D" uid="uid://cifiwbb8wchi3" path="res://art/background/ruralparallaxriver.png" id="15_river"]
 [ext_resource type="Texture2D" uid="uid://b5nb58o4ljlue" path="res://art/background/ruralparallaxriverfront.png" id="16_river_front"]
+[ext_resource type="Texture2D" path="res://art/background/ruralparalaxmoon.png" id="17_moon"]
+[ext_resource type="Texture2D" path="res://art/background/ruralparallaxriverskyredlex.png" id="18_sky_red"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
 animations = [{
@@ -91,59 +93,123 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible = false
 
-[node name="Parallax" type="Node2D" parent="."]
-script = ExtResource("8_parallax")
-Layers = [ NodePath("Parallax/Sky"), NodePath("Parallax/MountainBack2"), NodePath("Parallax/MountainBack"), NodePath("Parallax/Mountains"), NodePath("Parallax/Clouds"), NodePath("Parallax/Village"), NodePath("Parallax/River"), NodePath("Parallax/RiverFront") ]
-Scales = [ Vector2(0.1,0.1), Vector2(0.2,0.2), Vector2(0.3,0.3), Vector2(0.4,0.4), Vector2(0.6,0.6), Vector2(0.7,0.7), Vector2(0.8,0.8), Vector2(0.9,0.9) ]
+[node name="Background" type="ParallaxBackground" parent="."]
+script = ExtResource("auto_parallax")
 TargetPath = NodePath("../Player")
+VerticalFollowFactor = 1.0
 
-[node name="Sky" type="Node2D" parent="Parallax"]
+[node name="Moon" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.05, 0.05)
 
-[node name="SkySprite" type="Sprite2D" parent="Parallax/Sky"]
+[node name="MoonSprite" type="Sprite2D" parent="Background/Moon"]
+texture = ExtResource("17_moon")
+offset = Vector2(960, 540)
+
+[node name="RedSky" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.08, 0.08)
+
+[node name="RedSkySprite" type="Sprite2D" parent="Background/RedSky"]
+texture = ExtResource("18_sky_red")
+offset = Vector2(960, 540)
+
+[node name="Sky" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="SkySprite" type="Sprite2D" parent="Background/Sky"]
 texture = ExtResource("9_sky")
 offset = Vector2(960, 540)
 
-[node name="MountainBack2" type="Node2D" parent="Parallax"]
+[node name="MountainBack2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="MountainBack2Sprite" type="Sprite2D" parent="Parallax/MountainBack2"]
+[node name="MountainBack2Sprite" type="Sprite2D" parent="Background/MountainBack2"]
 texture = ExtResource("10_mountain_back2")
 offset = Vector2(960, 540)
 
-[node name="MountainBack" type="Node2D" parent="Parallax"]
+[node name="MountainBack" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="MountainBackSprite" type="Sprite2D" parent="Parallax/MountainBack"]
+[node name="MountainBackSprite" type="Sprite2D" parent="Background/MountainBack"]
 texture = ExtResource("11_mountain_back")
 offset = Vector2(960, 540)
 
-[node name="Mountains" type="Node2D" parent="Parallax"]
+[node name="Mountains" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="MountainSprite" type="Sprite2D" parent="Parallax/Mountains"]
+[node name="MountainSprite" type="Sprite2D" parent="Background/Mountains"]
 texture = ExtResource("12_mountain")
 offset = Vector2(960, 540)
 
-[node name="Clouds" type="Node2D" parent="Parallax"]
+[node name="Clouds" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="CloudsSprite" type="Sprite2D" parent="Parallax/Clouds"]
+[node name="CloudsSprite" type="Sprite2D" parent="Background/Clouds"]
 texture = ExtResource("13_clouds")
 offset = Vector2(960, 540)
 
-[node name="Village" type="Node2D" parent="Parallax"]
+[node name="Village" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="VillageSprite" type="Sprite2D" parent="Parallax/Village"]
+[node name="VillageSprite" type="Sprite2D" parent="Background/Village"]
 texture = ExtResource("14_village")
 offset = Vector2(960, 540)
 
-[node name="River" type="Node2D" parent="Parallax"]
+[node name="River" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="RiverSprite" type="Sprite2D" parent="Parallax/River"]
+[node name="RiverSprite" type="Sprite2D" parent="Background/River"]
 texture = ExtResource("15_river")
 offset = Vector2(960, 540)
 
-[node name="RiverFront" type="Node2D" parent="Parallax"]
+[node name="RiverFront" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="RiverFrontSprite" type="Sprite2D" parent="Parallax/RiverFront"]
+[node name="RiverFrontSprite" type="Sprite2D" parent="Background/RiverFront"]
 texture = ExtResource("16_river_front")
 offset = Vector2(960, 540)
+
+[node name="Clouds2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.58, 0.65)
+
+[node name="CloudsSprite2" type="Sprite2D" parent="Background/Clouds2"]
+texture = ExtResource("13_clouds")
+offset = Vector2(1920, 250)
+
+[node name="Mountain2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.43, 0.36)
+
+[node name="MountainSprite2" type="Sprite2D" parent="Background/Mountain2"]
+texture = ExtResource("12_mountain")
+offset = Vector2(1600, 170)
+
+[node name="MountainBack2B" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.22, 0.21)
+
+[node name="MountainBackSprite2" type="Sprite2D" parent="Background/MountainBack2B"]
+texture = ExtResource("10_mountain_back2")
+offset = Vector2(1440, 200)
+
+[node name="River2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.81, 0.85)
+
+[node name="RiverSprite2" type="Sprite2D" parent="Background/River2"]
+texture = ExtResource("15_river")
+offset = Vector2(1440, 560)
+
+[node name="RiverFront2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.93, 0.95)
+
+[node name="RiverFrontSprite2" type="Sprite2D" parent="Background/RiverFront2"]
+texture = ExtResource("16_river_front")
+offset = Vector2(1680, 600)
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(50,200)

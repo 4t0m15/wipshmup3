@@ -15,9 +15,16 @@ public partial class ParallaxController : Node2D
 	// Per-layer parallax scales. If shorter than Layers, DefaultParallax is used.
 	[Export] public Vector2[] Scales { get; set; } = new Vector2[0];
 
+	// Enable a gentle constant drift independent of player movement
+	[Export] public bool AutoScrollEnabled { get; set; } = true;
+
+	// Global auto-scroll velocity in pixels per second (negative X scrolls left)
+	[Export] public Vector2 AutoScrollVelocity { get; set; } = new Vector2(-50f, 0f);
+
 	private Node2D? _target = null;
 	private Node2D?[] _layerNodes = new Node2D?[0];
 	private Vector2[] _initialPositions = new Vector2[0];
+	private Vector2 _autoOffset = Vector2.Zero;
 
 	public override void _Ready()
 	{
@@ -68,6 +75,12 @@ public partial class ParallaxController : Node2D
 	{
 		try
 		{
+			// Accumulate time-based drift once per frame
+			if (AutoScrollEnabled)
+			{
+				_autoOffset += AutoScrollVelocity * (float)delta;
+			}
+
 			Vector2 targetPos = _target?.GlobalPosition ?? GetViewport().GetVisibleRect().Size * 0.5f;
 			Vector2 screenCenter = GetViewport().GetVisibleRect().Size * 0.5f;
 
@@ -80,11 +93,14 @@ public partial class ParallaxController : Node2D
 				if (Scales != null && i < Scales.Length)
 					scale = Scales[i];
 
-				// Calculate offset from screen center
+				// Calculate offset from screen center (player-driven parallax)
 				Vector2 offset = (targetPos - screenCenter) * (Vector2.One - scale);
+
+				// Apply gentle auto-scroll drift scaled per-layer for depth
+				Vector2 drift = AutoScrollEnabled ? (_autoOffset * scale) : Vector2.Zero;
 				
-				// Apply parallax effect
-				node.Position = _initialPositions[i] + offset;
+				// Apply parallax effect in global space to match stored initial global positions
+				node.GlobalPosition = _initialPositions[i] + offset + drift;
 			}
 		}
 		catch (Exception ex)
