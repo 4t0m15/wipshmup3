@@ -1,4 +1,5 @@
 using Godot;
+
 public partial class Player : Area2D
 {
 	[Export] public float MaxSpeed { get; set; } =450f;
@@ -29,11 +30,20 @@ public partial class Player : Area2D
 	// Shooting timer
 	private float _fireTimer =0f;
 
+	// Damage and invincibility
+	private bool _isInvincible = false;
+	private float _invincibilityTime = 1.0f;
+	private float _invincibilityTimer = 0f;
+	private ColorRect? _flashEffect;
+
 	public override void _Ready()
 	{
 		// Use the viewport visible rect to get a valid screen size at runtime
 		_screenSize = GetViewport().GetVisibleRect().Size;
 		AddToGroup("player");
+
+		// Set up collision detection
+		AreaEntered += OnAreaEntered;
 
 		// Try to find an AnimatedSprite2D child; if not present, use a Sprite2D fallback
 		_anim = GetNodeOrNull<AnimatedSprite2D>("AnimatedSprite2D");
@@ -65,6 +75,22 @@ public partial class Player : Area2D
 		// In case the viewport wasn't ready in _Ready, ensure we have a valid size
 		if (_screenSize == Vector2.Zero)
 			_screenSize = GetViewport().GetVisibleRect().Size;
+
+		// Handle invincibility timer
+		if (_isInvincible)
+		{
+			_invincibilityTimer -= (float)delta;
+			if (_invincibilityTimer <= 0f)
+			{
+				_isInvincible = false;
+				// Remove flash effect
+				if (_flashEffect != null)
+				{
+					_flashEffect.QueueFree();
+					_flashEffect = null;
+				}
+			}
+		}
 
 		// Get input vector (-1..1)
 		var input = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
@@ -119,14 +145,12 @@ public partial class Player : Area2D
 				_anim.Frame = _manualFrame;
 			}
 
-			// Flip sprite based on horizontal velocity
-			if (_velocity.X < -1f) _anim.FlipH = true;
-			else if (_velocity.X >1f) _anim.FlipH = false;
+			// Flip sprite based on horizontal velocity (no flip needed for horizontal shooting)
+			// Keep sprite facing right for horizontal shooting
 		}
 		else if (_spriteFallback != null)
 		{
-			if (_velocity.X < -1f) _spriteFallback.FlipH = true;
-			else if (_velocity.X >1f) _spriteFallback.FlipH = false;
+			// Keep sprite facing right for horizontal shooting
 		}
 
 		// Keep player inside the viewport
@@ -145,7 +169,7 @@ public partial class Player : Area2D
 					var inst = BulletScene.Instantiate();
 					if (inst is Node2D node)
 					{
-						node.Position = GlobalPosition + new Vector2(0, -20);
+						node.Position = GlobalPosition + new Vector2(20, 0);
 						// Add to parent's parent (scene root) so bullets are not children of player collision
 						var root = GetTree().CurrentScene;
 						if (root != null)
@@ -191,5 +215,37 @@ public partial class Player : Area2D
 				return actual;
 		}
 		return string.Empty;
+	}
+
+	private void OnAreaEntered(Area2D area)
+	{
+		// Check if it's an enemy bullet or enemy
+		if (area.IsInGroup("enemy_bullets") || area.IsInGroup("enemies"))
+		{
+			if (!_isInvincible)
+			{
+				TakeDamage();
+			}
+		}
+	}
+
+	private void TakeDamage()
+	{
+		// Start invincibility
+		_isInvincible = true;
+		_invincibilityTimer = _invincibilityTime;
+
+		// Create flash effect
+		_flashEffect = new ColorRect();
+		_flashEffect.Color = new Color(1, 0, 0, 0.3f); // Red flash
+		_flashEffect.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
+		AddChild(_flashEffect);
+
+		// Notify GameManager
+		var gameManager = GetTree().GetFirstNodeInGroup("game_manager");
+		if (gameManager != null && gameManager.HasMethod("OnPlayerHit"))
+		{
+			gameManager.Call("OnPlayerHit");
+		}
 	}
 }

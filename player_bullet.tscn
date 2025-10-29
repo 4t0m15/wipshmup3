@@ -1,12 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0z9l8m7n6p5q"]
 
-[ext_resource type="Script" uid="uid://d0z9l8m7n6p5q" path="res://PlayerBullet.cs" id="1_bullet"]
+[ext_resource type="Script" path="res://PlayerBullet.cs" id="1_bullet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]
 size = Vector2(8, 16)
 
 [node name="PlayerBullet" type="Area2D"]
 script = ExtResource("1_bullet")
+collision_layer = 4
+collision_mask = 2
 Speed = 500.0
 Damage = 1
 

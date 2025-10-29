@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class ParallaxController : Node2D
 {
@@ -39,6 +38,7 @@ public partial class ParallaxController : Node2D
 
 			for (int i =0; i < n; i++)
 			{
+				if (Layers == null) continue;
 				var path = Layers[i];
 				if (path == null || string.IsNullOrEmpty(path.ToString()))
 				{
@@ -68,9 +68,10 @@ public partial class ParallaxController : Node2D
 	{
 		try
 		{
-			Vector2 targetPos = _target?.GlobalPosition ?? GetViewport().GetVisibleRect().Size *0.5f;
+			Vector2 targetPos = _target?.GlobalPosition ?? GetViewport().GetVisibleRect().Size * 0.5f;
+			Vector2 screenCenter = GetViewport().GetVisibleRect().Size * 0.5f;
 
-			for (int i =0; i < _layerNodes.Length; i++)
+			for (int i = 0; i < _layerNodes.Length; i++)
 			{
 				if (_layerNodes[i] is not Node2D node)
 					continue;
@@ -79,9 +80,11 @@ public partial class ParallaxController : Node2D
 				if (Scales != null && i < Scales.Length)
 					scale = Scales[i];
 
-				// Parallax formula: layers with smaller scale move less relative to the target.
-				// final position = initial + (target * (1 - scale)).
-				node.GlobalPosition = _initialPositions[i] + (targetPos * (Vector2.One - scale));
+				// Calculate offset from screen center
+				Vector2 offset = (targetPos - screenCenter) * (Vector2.One - scale);
+				
+				// Apply parallax effect
+				node.Position = _initialPositions[i] + offset;
 			}
 		}
 		catch (Exception ex)

@@ -1,14 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://7glbeq4tr08y"]
+[gd_scene load_steps=20 format=3 uid="uid://7glbeq4tr08y"]
 
 [ext_resource type="Script" uid="uid://bx63weg1g4e2o" path="res://Player.cs" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cghdg4bsxeh37" path="res://art/player/Sprite-0001.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bimscwqjo87r0" path="res://art/player/Sprite-0003.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cvrsjn8blbmtr" path="res://art/player/Sprite-0002.png" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://e1a0l9m8n7p6q" path="res://GameManager.cs" id="4_game_manager"]
-[ext_resource type="PackedScene" uid="uid://b8x7k9m2n3p4q" path="res://enemy.tscn" id="5_enemy_scene"]
-[ext_resource type="PackedScene" uid="uid://c9y8k7m6n5p4q" path="res://enemy_bullet.tscn" id="6_enemy_bullet_scene"]
-[ext_resource type="PackedScene" uid="uid://d0z9l8m7n6p5q" path="res://player_bullet.tscn" id="7_player_bullet_scene"]
-[ext_resource type="Script" uid="uid://parallax_cs" path="res://scripts/systems/ParallaxController.cs" id="8_parallax"]
+[ext_resource type="PackedScene" uid="uid://scene_enemy_001" path="res://enemy.tscn" id="5_enemy_scene"]
+[ext_resource type="PackedScene" uid="uid://scene_enemy_bullet_001" path="res://enemy_bullet.tscn" id="6_enemy_bullet_scene"]
+[ext_resource type="PackedScene" uid="uid://scene_player_bullet_001" path="res://player_bullet.tscn" id="7_player_bullet_scene"]
+[ext_resource type="Script" uid="uid://cm4tpgey6wjuc" path="res://scripts/systems/ParallaxController.cs" id="8_parallax"]
+[ext_resource type="Script" path="res://HUD.cs" id="9_hud"]
+[ext_resource type="Texture2D" uid="uid://brl03453dspdy" path="res://art/background/ruralparallaxsky.png" id="9_sky"]
+[ext_resource type="Texture2D" uid="uid://b8x7k9m2n3p4q" path="res://art/background/ruralparallaxmountainback2.png" id="10_mountain_back2"]
+[ext_resource type="Texture2D" uid="uid://c9y8k7m6n5p4q" path="res://art/background/ruralparallaxmountainback.png" id="11_mountain_back"]
+[ext_resource type="Texture2D" uid="uid://d0z9l8m7n6p5q" path="res://art/background/ruralparallaxmountain.png" id="12_mountain"]
+[ext_resource type="Texture2D" uid="uid://e1a0l9m8n7p6q" path="res://art/background/ruralparallaxclouds.png" id="13_clouds"]
+[ext_resource type="Texture2D" uid="uid://dr3o6gxtxah4t" path="res://art/background/ruralparallaxvillage.png" id="14_village"]
+[ext_resource type="Texture2D" uid="uid://cifiwbb8wchi3" path="res://art/background/ruralparallaxriver.png" id="15_river"]
+[ext_resource type="Texture2D" uid="uid://b5nb58o4ljlue" path="res://art/background/ruralparallaxriverfront.png" id="16_river_front"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
 animations = [{
@@ -46,36 +55,108 @@ size = Vector2(80, 80)
 script = ExtResource("4_game_manager")
 EnemyScene = ExtResource("5_enemy_scene")
 EnemyBulletScene = ExtResource("6_enemy_bullet_scene")
-SpawnRate = 2.0
-PlayerHealth = 3
+SpawnRate = 3.5
+PlayerHealth = 5
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("9_hud")
+
+[node name="HealthLabel" type="Label" parent="HUD"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 60.0
+text = "Health: 5"
+theme_override_font_sizes/font_size = 24
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_left = 1720.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 60.0
+text = "Score: 0"
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+
+[node name="HighScoreLabel" type="Label" parent="HUD"]
+offset_left = 1720.0
+offset_top = 60.0
+offset_right = 1900.0
+offset_bottom = 100.0
+text = "High Score: 0"
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 2
+
+[node name="GameOverLabel" type="Label" parent="HUD"]
+offset_left = 760.0
+offset_top = 440.0
+offset_right = 1160.0
+offset_bottom = 640.0
+text = "GAME OVER"
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
 
 [node name="Parallax" type="Node2D" parent="."]
 script = ExtResource("8_parallax")
-Layers = [ NodePath("Parallax/LayerFar"), NodePath("Parallax/LayerMid"), NodePath("Parallax/LayerNear") ]
-Scales = [ Vector2(0.2,0.2), Vector2(0.5,0.5), Vector2(0.9,0.9) ]
+Layers = [ NodePath("Parallax/Sky"), NodePath("Parallax/MountainBack2"), NodePath("Parallax/MountainBack"), NodePath("Parallax/Mountains"), NodePath("Parallax/Clouds"), NodePath("Parallax/Village"), NodePath("Parallax/River"), NodePath("Parallax/RiverFront") ]
+Scales = [ Vector2(0.1,0.1), Vector2(0.2,0.2), Vector2(0.3,0.3), Vector2(0.4,0.4), Vector2(0.6,0.6), Vector2(0.7,0.7), Vector2(0.8,0.8), Vector2(0.9,0.9) ]
 TargetPath = NodePath("../Player")
 
-[node name="LayerFar" type="Node2D" parent="Parallax"]
+[node name="Sky" type="Node2D" parent="Parallax"]
 
-[node name="PolyFar" type="Polygon2D" parent="Parallax/LayerFar"]
-polygon = PackedVector2Array( Vector2(-2000, -1000), Vector2(4000, -1000), Vector2(4000,1000), Vector2(-2000,1000) )
-color = Color(0.2,0.4,0.8,1)
+[node name="SkySprite" type="Sprite2D" parent="Parallax/Sky"]
+texture = ExtResource("9_sky")
+offset = Vector2(960, 540)
 
-[node name="LayerMid" type="Node2D" parent="Parallax"]
+[node name="MountainBack2" type="Node2D" parent="Parallax"]
 
-[node name="PolyMid" type="Polygon2D" parent="Parallax/LayerMid"]
-polygon = PackedVector2Array( Vector2(-2000, -1000), Vector2(4000, -1000), Vector2(4000,1000), Vector2(-2000,1000) )
-color = Color(0.2,0.6,0.4,1)
+[node name="MountainBack2Sprite" type="Sprite2D" parent="Parallax/MountainBack2"]
+texture = ExtResource("10_mountain_back2")
+offset = Vector2(960, 540)
 
-[node name="LayerNear" type="Node2D" parent="Parallax"]
+[node name="MountainBack" type="Node2D" parent="Parallax"]
 
-[node name="PolyNear" type="Polygon2D" parent="Parallax/LayerNear"]
-polygon = PackedVector2Array( Vector2(-2000, -1000), Vector2(4000, -1000), Vector2(4000,1000), Vector2(-2000,1000) )
-color = Color(0.8,0.6,0.2,1)
+[node name="MountainBackSprite" type="Sprite2D" parent="Parallax/MountainBack"]
+texture = ExtResource("11_mountain_back")
+offset = Vector2(960, 540)
+
+[node name="Mountains" type="Node2D" parent="Parallax"]
+
+[node name="MountainSprite" type="Sprite2D" parent="Parallax/Mountains"]
+texture = ExtResource("12_mountain")
+offset = Vector2(960, 540)
+
+[node name="Clouds" type="Node2D" parent="Parallax"]
+
+[node name="CloudsSprite" type="Sprite2D" parent="Parallax/Clouds"]
+texture = ExtResource("13_clouds")
+offset = Vector2(960, 540)
+
+[node name="Village" type="Node2D" parent="Parallax"]
+
+[node name="VillageSprite" type="Sprite2D" parent="Parallax/Village"]
+texture = ExtResource("14_village")
+offset = Vector2(960, 540)
+
+[node name="River" type="Node2D" parent="Parallax"]
+
+[node name="RiverSprite" type="Sprite2D" parent="Parallax/River"]
+texture = ExtResource("15_river")
+offset = Vector2(960, 540)
+
+[node name="RiverFront" type="Node2D" parent="Parallax"]
+
+[node name="RiverFrontSprite" type="Sprite2D" parent="Parallax/RiverFront"]
+texture = ExtResource("16_river_front")
+offset = Vector2(960, 540)
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(50,200)
 script = ExtResource("1_0xm2m")
+collision_layer = 1
+collision_mask = 4
 BulletScene = ExtResource("7_player_bullet_scene")
 FireRate = 0.3
 
