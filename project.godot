@@ -12,8 +12,12 @@ config_version=5
 
 config/name="wipshmup3"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://GameManager.gd"
 
 [display]
 
@@ -22,17 +26,9 @@ window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
-[dotnet]
-
-project/assembly_name="wipshmup3"
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
-
-[autoload]
-
-GameManager="*res://GameManager.cs"
 
 [input]
 

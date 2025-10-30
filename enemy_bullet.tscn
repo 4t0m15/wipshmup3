@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c9y8k7m6n5p4q"]
 
-[ext_resource type="Script" path="res://EnemyBullet.cs" id="1_bullet"]
+[ext_resource type="Script" path="res://EnemyBullet.gd" id="1_bullet"]
 [ext_resource type="Texture2D" path="res://art/bullets/shooting laser-sheet.png" id="2_bullet_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]
@@ -10,7 +10,7 @@ size = Vector2(8, 16)
 script = ExtResource("1_bullet")
 collision_layer = 8
 collision_mask = 1
-Speed = 300.0
+Speed = 500.0
 Damage = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
