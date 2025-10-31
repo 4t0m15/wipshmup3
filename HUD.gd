@@ -32,4 +32,3 @@ func ShowGameOver(final_score: int, high_score: int) -> void:
 func HideGameOver() -> void:
     if _game_over_label:
         _game_over_label.visible = false
-
