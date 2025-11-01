@@ -2,11 +2,15 @@ extends Node
 
 @export var EnemyScene: PackedScene
 @export var EnemyBulletScene: PackedScene
+@export var BossScene: PackedScene
 @export var PlayerHealth: int = 5
 @export var SpawnRate: float = 3.5
+@export var BossSpawnTime: float = 30.0
 
 var _screen_size: Vector2
 var _spawn_timer := 0.0
+var _boss_spawn_timer := 0.0
+var _boss_spawned := false
 var _current_health := 0
 var _game_over := false
 var _current_score := 0
@@ -43,6 +47,15 @@ func _process(delta: float) -> void:
         _spawn_timer = SpawnRate
         _spawn_enemy()
 
+    # Boss spawn timer handling: count down once and spawn a single boss when the timer elapses.
+    if not _boss_spawned:
+        if _boss_spawn_timer <= 0.0:
+            _boss_spawn_timer = BossSpawnTime
+        _boss_spawn_timer -= delta
+        if _boss_spawn_timer <= 0.0:
+            _spawn_boss()
+            _boss_spawned = true
+
 func _spawn_enemy() -> void:
     if not EnemyScene:
         return
@@ -51,6 +64,16 @@ func _spawn_enemy() -> void:
         var random_y := randf_range(50.0, _screen_size.y - 50.0)
         enemy.position = Vector2(_screen_size.x + 50.0, random_y)
         get_tree().current_scene.add_child(enemy)
+
+func _spawn_boss() -> void:
+    if not BossScene:
+        return
+    var boss := BossScene.instantiate()
+    if boss is Node2D:
+        # Spawn the boss off-screen to the right and centered vertically.
+        # The boss scene should handle its own size, health, and spiral firing.
+        boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
+        get_tree().current_scene.add_child(boss)
 
 func OnPlayerHit() -> void:
     if _game_over:
@@ -117,4 +140,3 @@ func _show_game_over() -> void:
 func _hide_game_over() -> void:
     if _hud and _hud.has_method("HideGameOver"):
         _hud.HideGameOver()
-
