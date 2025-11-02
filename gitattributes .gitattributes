@@ -1,8 +1,0 @@
-* text=auto eol=lf
-
-# Keep Windows-friendly EOLs where they matter
-*.sln text eol=crlf
-*.bat text eol=crlf
-
-# Useful hints
-*.cs diff=csharp
