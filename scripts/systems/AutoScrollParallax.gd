@@ -6,6 +6,7 @@ extends ParallaxBackground
 @export var ClampYMin: float = -180.0
 @export var ClampYMax: float = 180.0
 @export var SkyOverscan: float = 2.0
+@export var VerticalOffsetPercent: float = 0.0 # 0.2 = shift down by 20% of viewport height
 
 var _target: Node2D = null
 var _base_offset: Vector2 = Vector2.ZERO
@@ -13,6 +14,7 @@ var _base_offset: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	var viewport_w: float = get_viewport().get_visible_rect().size.x
 	var viewport_h: float = get_viewport().get_visible_rect().size.y
+	var offset_y_ready: float = viewport_h * VerticalOffsetPercent
 	var vertical_margin: float = maxf(absf(ClampYMin), absf(ClampYMax)) + 8.0
 	for child in get_children():
 		if child is ParallaxLayer:
@@ -44,7 +46,7 @@ func _ready() -> void:
 						mat.shader = shader
 						sprite.material = mat
 				else:
-					var y: float = viewport_h - float(tex.get_size().y) + vertical_margin
+					var y: float = viewport_h - float(tex.get_size().y) + vertical_margin + offset_y_ready
 					if layer_name.findn("RiverFront") != -1:
 						y += 10.0
 					elif layer_name.findn("River") != -1:
@@ -63,6 +65,7 @@ func _process(delta: float) -> void:
 	var viewport_h: float = get_viewport().get_visible_rect().size.y
 	var center_y: float = viewport_h * 0.5
 	var target_y: float = _target.global_position.y if _target else center_y
-	var parallax_y: float = (target_y - center_y) * VerticalFollowFactor
+	var offset_y: float = viewport_h * VerticalOffsetPercent
+	var parallax_y: float = (target_y - center_y + offset_y) * VerticalFollowFactor
 	parallax_y = clampf(parallax_y, ClampYMin, ClampYMax)
 	scroll_base_offset = Vector2(_base_offset.x, parallax_y)

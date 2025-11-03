@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7glbeq4tr08y"]
+[gd_scene load_steps=17 format=3 uid="uid://7glbeq4tr08y"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cghdg4bsxeh37" path="res://art/player/Sprite-0001.png" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvrsjn8blbmtr" path="res://art/player/Sprite-0002.png" id="3_lquwl"]
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="9_hud"]
 [ext_resource type="Texture2D" uid="uid://brl03453dspdy" path="res://art/background/ruralparallaxsky.png" id="9_sky"]
+[ext_resource type="Texture2D" uid="uid://c8flubyek8sr1" path="res://art/background/ruralparallaxclouds.png" id="19_clouds"]
 [ext_resource type="PackedScene" uid="uid://d01al8m7n6p5q" path="res://scenes/player_bullet.tscn" id="12_mountain"]
 [ext_resource type="Texture2D" uid="uid://dr3o6gxtxah4t" path="res://art/background/ruralparallaxvillage.png" id="14_village"]
 [ext_resource type="Texture2D" uid="uid://cifiwbb8wchi3" path="res://art/background/ruralparallaxriver.png" id="15_river"]
@@ -84,13 +85,15 @@ offset_top = 440.0
 offset_right = 1160.0
 offset_bottom = 640.0
 theme_override_font_sizes/font_size = 36
-text = "GAME OVER"
+text = "game over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Background" type="ParallaxBackground" parent="."]
 script = ExtResource("auto_parallax")
 TargetPath = NodePath("../Player")
+VerticalFollowFactor = -1.0
+VerticalOffsetPercent = 0.2
 
 [node name="Moon" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(0.05, 0.05)
@@ -140,6 +143,7 @@ motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="CloudsSprite" type="Sprite2D" parent="Background/Clouds"]
+texture = ExtResource("19_clouds")
 offset = Vector2(960, 540)
 
 [node name="Village" type="ParallaxLayer" parent="Background"]
@@ -170,6 +174,7 @@ offset = Vector2(960, 540)
 motion_scale = Vector2(0.58, 0.65)
 
 [node name="CloudsSprite2" type="Sprite2D" parent="Background/Clouds2"]
+texture = ExtResource("19_clouds")
 offset = Vector2(1920, 250)
 
 [node name="Mountain2" type="ParallaxLayer" parent="Background"]

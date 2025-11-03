@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	else:
 		var speed := _velocity.length()
 		if speed > 0.0:
-			var drop := min(Drag * delta, speed)
+			var drop: float = minf(Drag * delta, speed)
 			_velocity -= _velocity.normalized() * drop
 
 	position += _velocity * delta

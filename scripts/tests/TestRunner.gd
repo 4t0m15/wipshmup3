@@ -11,13 +11,13 @@ func _ready() -> void:
 	await _run()
 	_print_summary_and_quit()
 
-func _log_pass(name: String) -> void:
+func _log_pass(test_name: String) -> void:
 	_passes += 1
-	print("[PASS] ", name)
+	print("[PASS] ", test_name)
 
-func _log_fail(name: String, why: String = "") -> void:
+func _log_fail(test_name: String, why: String = "") -> void:
 	_fails += 1
-	printerr("[FAIL] %s %s" % [name, ("- " + why) if why != "" else ""]) 
+	printerr("[FAIL] %s %s" % [test_name, ("- " + why) if why != "" else ""]) 
 
 func _print_summary_and_quit() -> void:
 	var total := _passes + _fails
@@ -28,6 +28,7 @@ func _run() -> void:
 	await _test_player_shoots()
 	await _test_enemy_takes_damage_and_dies()
 	await _test_boss_spiral_spawns_bullets()
+	await _test_boss_z_spiral_spawns_bullets()
 	await _test_game_manager_spawns_and_restart()
 
 # --- Helpers ---
@@ -46,10 +47,10 @@ func _yield_frames(frames: int) -> void:
 # --- Tests ---
 func _test_player_shoots() -> void:
 	var scene := load("res://scenes/main.tscn")
-	var inst := scene.instantiate()
+	var inst: Node = scene.instantiate() as Node
 	_add_to_scene(inst)
 	await _yield_frames(2)
-	var player := inst.get_node("Player")
+	var player: Variant = inst.get_node("Player")
 	if not player:
 		_log_fail("player exists")
 		_remove_from_scene(inst)
@@ -68,14 +69,14 @@ func _test_player_shoots() -> void:
 
 func _test_enemy_takes_damage_and_dies() -> void:
 	var enemy_scene := load("res://scenes/enemy.tscn")
-	var enemy := enemy_scene.instantiate()
+	var enemy: Variant = enemy_scene.instantiate() as Node
 	_add_to_scene(enemy)
 	await _yield_frames(1)
 	if not enemy.has_method("TakeDamage"):
 		_log_fail("enemy has TakeDamage")
 		_remove_from_scene(enemy)
 		return
-	var start_health := enemy.GetHealth()
+	var start_health: int = int(enemy.GetHealth())
 	enemy.TakeDamage(start_health)
 	await _yield_frames(1)
 	if not is_instance_valid(enemy):
@@ -86,7 +87,7 @@ func _test_enemy_takes_damage_and_dies() -> void:
 
 func _test_boss_spiral_spawns_bullets() -> void:
 	var boss_scene := load("res://scenes/boss.tscn")
-	var boss := boss_scene.instantiate()
+	var boss: Variant = boss_scene.instantiate() as Node
 	_add_to_scene(boss)
 	await _yield_frames(2)
 	if boss.has_method("_shoot_spiral"):
@@ -99,6 +100,23 @@ func _test_boss_spiral_spawns_bullets() -> void:
 			_log_fail("boss spiral spawns bullets")
 	else:
 		_log_fail("boss has shoot spiral")
+	_remove_from_scene(boss)
+
+func _test_boss_z_spiral_spawns_bullets() -> void:
+	var boss_scene := load("res://scenes/boss_z.tscn")
+	var boss: Variant = boss_scene.instantiate() as Node
+	_add_to_scene(boss)
+	await _yield_frames(2)
+	if boss.has_method("_shoot_spiral"):
+		boss._shoot_spiral()
+		await _yield_frames(1)
+		var bullets := get_tree().get_nodes_in_group("enemy_bullets")
+		if bullets.size() >= 1:
+			_log_pass("boss_z spiral spawns bullets")
+		else:
+			_log_fail("boss_z spiral spawns bullets")
+	else:
+		_log_fail("boss_z has shoot spiral")
 	_remove_from_scene(boss)
 
 func _test_game_manager_spawns_and_restart() -> void:

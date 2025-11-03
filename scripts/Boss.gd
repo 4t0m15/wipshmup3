@@ -2,16 +2,16 @@ extends Damageable
 
 @export var EntrySpeed: float = 200.0
 @export var HorizontalTargetOffset: float = 300.0
-@export var HoverAmplitude: float = 60.0
-@export var HoverFrequency: float = 1.0
+@export var HoverAmplitude: int = 60
+@export var HoverFrequency: int = 1
 @export var FireInterval: float = 0.08
 @export var AngularVelocity: float = 90.0
 @export var BulletsPerShot: int = 6
-@export var BulletSpeed: float = 300.0
+@export var BulletSpeed: int = 300
 @export var BulletScene: PackedScene
 
 var _screen_size: Vector2
-var _state: String = "entering"2 
+var _state: String = "entering"
 var _target_x: float = 0.0
 var _hover_time := 0.0
 var _fire_timer := 0.0
@@ -66,9 +66,10 @@ func _shoot_spiral() -> void:
 	if not _bullet_scene:
 		return
 
-	var angle_step := 360.0 / max(1, BulletsPerShot)
+	var count: int = max(1, BulletsPerShot)
+	var angle_step: float = 360.0 / float(count)
 	for i in range(BulletsPerShot):
-		var angle_deg := _angle_deg + i * angle_step
+		var angle_deg: float = _angle_deg + float(i) * angle_step
 		var bullet := _bullet_scene.instantiate()
 		if bullet is Node2D:
 			bullet.position = global_position

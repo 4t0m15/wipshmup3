@@ -3,14 +3,18 @@ extends Node
 @export var EnemyScene: PackedScene = preload("res://scenes/enemy.tscn")
 @export var EnemyBulletScene: PackedScene = preload("res://scenes/enemy_bullet.tscn")
 @export var BossScene: PackedScene = preload("res://scenes/boss.tscn")
+@export var BossScene2: PackedScene
 @export var PlayerHealth: int = 5
 @export var SpawnRate: float = 3.5
 @export var BossSpawnTime: float = 30.0
+@export var BossSpawnTime2: float = 60.0
 
 var _screen_size: Vector2
 var _spawn_timer := 0.0
 var _boss_spawn_timer := 0.0
 var _boss_spawned := false
+var _boss2_spawn_timer := 0.0
+var _boss2_spawned := false
 var _current_health := 0
 var _game_over := false
 var _current_score := 0
@@ -32,6 +36,7 @@ func _ready() -> void:
 			_hud = current.get_node_or_null("./HUD")
 	_spawn_timer = SpawnRate
 	_boss_spawn_timer = BossSpawnTime
+	_boss2_spawn_timer = BossSpawnTime2
 
 	_update_health()
 	_update_score()
@@ -47,12 +52,19 @@ func _process(delta: float) -> void:
 		_spawn_timer = SpawnRate
 		_spawn_enemy()
 
-	# Spawn boss once
+	# Spawn boss once (timer counts from game start)
 	if not _boss_spawned:
 		_boss_spawn_timer -= delta
 		if _boss_spawn_timer <= 0.0:
 			_spawn_boss()
 			_boss_spawned = true
+
+	# Spawn second boss once (timer counts from game start; independent of first)
+	if not _boss2_spawned:
+		_boss2_spawn_timer -= delta
+		if _boss2_spawn_timer <= 0.0:
+			_spawn_boss2()
+			_boss2_spawned = true
 
 func _spawn_enemy() -> void:
 	if not EnemyScene:
@@ -69,6 +81,20 @@ func _spawn_boss() -> void:
 		return
 
 	var boss := BossScene.instantiate()
+	if boss is Node2D:
+		boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
+		get_tree().current_scene.add_child(boss)
+
+func _spawn_boss2() -> void:
+	var scene: PackedScene = BossScene2
+	if not scene:
+		var res := ResourceLoader.load("res://scenes/boss_z.tscn")
+		if res is PackedScene:
+			scene = res
+		else:
+			return
+
+	var boss := scene.instantiate()
 	if boss is Node2D:
 		boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
 		get_tree().current_scene.add_child(boss)
@@ -109,7 +135,9 @@ func _restart_game() -> void:
 	_current_score = 0
 	_game_over = false
 	_boss_spawned = false
+	_boss2_spawned = false
 	_boss_spawn_timer = BossSpawnTime
+	_boss2_spawn_timer = BossSpawnTime2
 
 	_update_health()
 	_update_score()
@@ -127,7 +155,7 @@ func _restart_game() -> void:
 	_clear_all_entities()
 
 func _clear_all_entities() -> void:
-	for group in ["enemies", "player_bullets", "enemy_bullets"]:
+	for group in ["enemies", "player_bullets", "enemy_bullets", "boss"]:
 		for entity in get_tree().get_nodes_in_group(group):
 			if entity is Node:
 				entity.queue_free()
