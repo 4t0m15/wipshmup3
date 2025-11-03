@@ -1,7 +1,7 @@
 extends Node
 
-@export var EnemyScene: PackedScene
-@export var EnemyBulletScene: PackedScene
+@export var EnemyScene: PackedScene = preload("res://scenes/enemy.tscn")
+@export var EnemyBulletScene: PackedScene = preload("res://scenes/enemy_bullet.tscn")
 @export var BossScene: PackedScene = preload("res://scenes/boss.tscn")
 @export var PlayerHealth: int = 5
 @export var SpawnRate: float = 3.5
@@ -25,7 +25,11 @@ func _ready() -> void:
 	_current_health = PlayerHealth
 	add_to_group("game_manager")
 
-	_hud = get_tree().current_scene.get_node_or_null("HUD")
+	var current := get_tree().current_scene
+	if current:
+		_hud = current.get_node_or_null("HUD")
+		if not _hud:
+			_hud = current.get_node_or_null("./HUD")
 	_spawn_timer = SpawnRate
 	_boss_spawn_timer = BossSpawnTime
 
@@ -110,6 +114,11 @@ func _restart_game() -> void:
 	_update_health()
 	_update_score()
 	_hide_game_over()
+
+	# Reacquire HUD in case scene reloaded
+	var current := get_tree().current_scene
+	if current:
+		_hud = current.get_node_or_null("HUD")
 
 	var player := get_tree().get_first_node_in_group("player")
 	if player is Node2D:

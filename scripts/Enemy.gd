@@ -1,6 +1,6 @@
 extends Damageable
 
-@export var Speed: float = 200.0
+@export var Speed: float = 250.0
 @export var FireRate: float = 1.5
 
 var _screen_size: Vector2

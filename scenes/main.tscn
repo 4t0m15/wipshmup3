@@ -1,19 +1,19 @@
 [gd_scene load_steps=16 format=3 uid="uid://7glbeq4tr08y"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_0xm2m"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cghdg4bsxeh37" path="res://art/player/Sprite-0001.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bimscwqjo87r0" path="res://art/player/Sprite-0003.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cvrsjn8blbmtr" path="res://art/player/Sprite-0002.png" id="3_lquwl"]
-[ext_resource type="Script" path="res://HUD.gd" id="9_hud"]
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="9_hud"]
 [ext_resource type="Texture2D" uid="uid://brl03453dspdy" path="res://art/background/ruralparallaxsky.png" id="9_sky"]
-[ext_resource type="PackedScene" uid="uid://d01al8m7n6p5q" path="res://player_bullet.tscn" id="12_mountain"]
+[ext_resource type="PackedScene" uid="uid://d01al8m7n6p5q" path="res://scenes/player_bullet.tscn" id="12_mountain"]
 [ext_resource type="Texture2D" uid="uid://dr3o6gxtxah4t" path="res://art/background/ruralparallaxvillage.png" id="14_village"]
 [ext_resource type="Texture2D" uid="uid://cifiwbb8wchi3" path="res://art/background/ruralparallaxriver.png" id="15_river"]
 [ext_resource type="Texture2D" uid="uid://b5nb58o4ljlue" path="res://art/background/ruralparallaxriverfront.png" id="16_river_front"]
 [ext_resource type="Texture2D" uid="uid://bl6jwyix46y6l" path="res://art/background/ruralparalaxmoon.png" id="17_moon"]
 [ext_resource type="Texture2D" uid="uid://c7wmjbmpwatox" path="res://art/background/ruralparallaxriverskyredlex.png" id="18_sky_red"]
 [ext_resource type="Script" path="res://scripts/systems/AutoScrollParallax.gd" id="auto_parallax"]
-[ext_resource type="Script" path="res://PauseControl.gd" id="pause_control"]
+[ext_resource type="Script" path="res://scripts/PauseControl.gd" id="pause_control"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
 animations = [{

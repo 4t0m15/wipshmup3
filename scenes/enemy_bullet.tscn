@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c9y8k7m6n5p4q"]
 
-[ext_resource type="Script" path="res://EnemyBullet.gd" id="1_bullet"]
+[ext_resource type="Script" path="res://scripts/EnemyBullet.gd" id="1_bullet"]
 [ext_resource type="Texture2D" path="res://art/bullets/shooting laser-sheet.png" id="2_bullet_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet"]

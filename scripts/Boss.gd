@@ -11,7 +11,7 @@ extends Damageable
 @export var BulletScene: PackedScene
 
 var _screen_size: Vector2
-var _state: String = "entering"
+var _state: String = "entering"2 
 var _target_x: float = 0.0
 var _hover_time := 0.0
 var _fire_timer := 0.0

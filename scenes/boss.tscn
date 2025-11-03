@@ -11,6 +11,8 @@ radius = 96.0
 script = ExtResource("1_boss")
 position = Vector2(1400, 300)
 monitoring = true
+collision_layer = 2
+collision_mask = 1
 BulletScene = ExtResource("3_enemy_bullet")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
