@@ -52,13 +52,15 @@ func _process(delta: float) -> void:
 		_spawn_timer = SpawnRate
 		_spawn_enemy()
 
-	if not _boss_spawned:
+	if not _boss_spawned and not _has_active_boss():
 		_boss_spawn_timer -= delta
 		if _boss_spawn_timer <= 0.0:
-			_spawn_boss()
-			_boss_spawned = true
+			if _spawn_boss():
+				_boss_spawned = true
+			else:
+				_boss_spawn_timer = 1.0
 
-	if not _boss2_spawned:
+	if not _boss2_spawned and not _has_active_boss():
 		_boss2_spawn_timer -= delta
 		if _boss2_spawn_timer <= 0.0:
 			# Only mark spawned if we actually succeeded spawning
@@ -78,14 +80,23 @@ func _spawn_enemy() -> void:
 		enemy.position = Vector2(_screen_size.x + 50.0, random_y)
 		get_tree().current_scene.add_child(enemy)
 
-func _spawn_boss() -> void:
-	if not BossScene:
-		return
+func _spawn_boss() -> bool:
+	var scene: PackedScene = BossScene
+	if not _is_scene_valid(scene):
+		scene = _try_load_scene([
+			"res://scenes/boss.tscn"
+		])
+		if not _is_scene_valid(scene):
+			push_warning("BossScene not set or invalid; fallback boss scene not found")
+			return false
 
-	var boss := BossScene.instantiate()
-	if boss is Node2D:
-		boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
-		get_tree().current_scene.add_child(boss)
+	if scene and scene.can_instantiate():
+		var boss := scene.instantiate()
+		if boss is Node2D:
+			boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
+			get_tree().current_scene.add_child(boss)
+			return true
+	return false
 
 func _spawn_boss2() -> bool:
 	var scene: PackedScene = BossScene2
@@ -99,16 +110,15 @@ func _spawn_boss2() -> bool:
 			push_warning("BossScene2 not set or invalid; fallback boss scenes not found")
 			return false
 
-	# Clear existing enemies on stage before boss appears
-	for entity in get_tree().get_nodes_in_group("enemies"):
-		if entity is Node:
-			entity.queue_free()
-
-	# Safely instantiate
+	# Safely instantiate (not added yet, so it won't be affected by clearing)
 	if scene and scene.can_instantiate():
 		var boss := scene.instantiate()
 		if boss is Node2D:
 			boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
+			# Clear existing non-boss enemies right before adding the new boss
+			for entity in get_tree().get_nodes_in_group("enemies"):
+				if entity is Node and not entity.is_in_group("boss"):
+					entity.queue_free()
 			get_tree().current_scene.add_child(boss)
 			return true
 
@@ -124,6 +134,9 @@ func _try_load_scene(paths: Array) -> PackedScene:
 			if res is PackedScene and res.can_instantiate():
 				return res
 	return null
+
+func _has_active_boss() -> bool:
+	return get_tree().get_nodes_in_group("boss").size() > 0
 
 func OnPlayerHit() -> void:
 	if _game_over:
