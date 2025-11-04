@@ -5,9 +5,9 @@ extends Node
 @export var BossScene: PackedScene = preload("res://scenes/boss.tscn")
 @export var BossScene2: PackedScene
 @export var PlayerHealth: int = 5
-@export var SpawnRate: float = 3.5
-@export var BossSpawnTime: float = 30.0
-@export var BossSpawnTime2: float = 60.0
+@export var SpawnRate: float = 0.5
+@export var BossSpawnTime: float = 10.0
+@export var BossSpawnTime2: float = 5.0
 
 var _screen_size: Vector2
 var _spawn_timer := 0.0
@@ -52,19 +52,21 @@ func _process(delta: float) -> void:
 		_spawn_timer = SpawnRate
 		_spawn_enemy()
 
-	# Spawn boss once (timer counts from game start)
 	if not _boss_spawned:
 		_boss_spawn_timer -= delta
 		if _boss_spawn_timer <= 0.0:
 			_spawn_boss()
 			_boss_spawned = true
 
-	# Spawn second boss once (timer counts from game start; independent of first)
 	if not _boss2_spawned:
 		_boss2_spawn_timer -= delta
 		if _boss2_spawn_timer <= 0.0:
-			_spawn_boss2()
-			_boss2_spawned = true
+			# Only mark spawned if we actually succeeded spawning
+			if _spawn_boss2():
+				_boss2_spawned = true
+			else:
+				# Retry again in a short while if spawning failed (e.g., wrong resource path)
+				_boss2_spawn_timer = 1.0
 
 func _spawn_enemy() -> void:
 	if not EnemyScene:
@@ -85,19 +87,43 @@ func _spawn_boss() -> void:
 		boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
 		get_tree().current_scene.add_child(boss)
 
-func _spawn_boss2() -> void:
+func _spawn_boss2() -> bool:
 	var scene: PackedScene = BossScene2
-	if not scene:
-		var res := ResourceLoader.load("res://scenes/boss_z.tscn")
-		if res is PackedScene:
-			scene = res
-		else:
-			return
+	# Validate provided scene; if invalid, try fallbacks with underscore or dash
+	if not _is_scene_valid(scene):
+		scene = _try_load_scene([
+			"res://scenes/boss_z.tscn",
+			"res://scenes/boss-z.tscn"
+		])
+		if not _is_scene_valid(scene):
+			push_warning("BossScene2 not set or invalid; fallback boss scenes not found")
+			return false
 
-	var boss := scene.instantiate()
-	if boss is Node2D:
-		boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
-		get_tree().current_scene.add_child(boss)
+	# Clear existing enemies on stage before boss appears
+	for entity in get_tree().get_nodes_in_group("enemies"):
+		if entity is Node:
+			entity.queue_free()
+
+	# Safely instantiate
+	if scene and scene.can_instantiate():
+		var boss := scene.instantiate()
+		if boss is Node2D:
+			boss.position = Vector2(_screen_size.x + 200.0, _screen_size.y / 2.0)
+			get_tree().current_scene.add_child(boss)
+			return true
+
+	return false
+
+func _is_scene_valid(scene: PackedScene) -> bool:
+	return scene != null and scene is PackedScene and scene.can_instantiate()
+
+func _try_load_scene(paths: Array) -> PackedScene:
+	for p in paths:
+		if ResourceLoader.exists(p):
+			var res := ResourceLoader.load(p)
+			if res is PackedScene and res.can_instantiate():
+				return res
+	return null
 
 func OnPlayerHit() -> void:
 	if _game_over:
@@ -122,6 +148,11 @@ func _game_over_fn() -> void:
 		_high_score = _current_score
 
 	_show_game_over()
+
+	# Trigger player extreme death debris effect
+	var player := get_tree().get_first_node_in_group("player")
+	if player and player.has_method("SpawnDeathDebrisExtremeGrey"):
+		player.SpawnDeathDebrisExtremeGrey()
 
 	var timer := Timer.new()
 	timer.wait_time = 2.0
@@ -151,6 +182,8 @@ func _restart_game() -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if player is Node2D:
 		player.position = Vector2(100.0, _screen_size.y / 2.0)
+		if player.has_method("RestoreAfterDeathEffect"):
+			player.RestoreAfterDeathEffect()
 
 	_clear_all_entities()
 

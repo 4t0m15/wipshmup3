@@ -9,6 +9,8 @@ extends Damageable
 @export var BulletsPerShot: int = 6
 @export var BulletSpeed: int = 300
 @export var BulletScene: PackedScene
+@export var IsHomingBoss: bool = false
+@export var HomingTurnSpeed: float = 240.0
 
 var _screen_size: Vector2
 var _state: String = "entering"
@@ -17,6 +19,7 @@ var _hover_time := 0.0
 var _fire_timer := 0.0
 var _angle_deg := 0.0
 var _bullet_scene: PackedScene
+var _can_fire := false
 
 func _ready() -> void:
 	super._ready()
@@ -40,6 +43,18 @@ func _ready() -> void:
 
 	area_entered.connect(_on_area_entered)
 
+	# Start firing as soon as boss is visible on screen
+	var vis := VisibleOnScreenNotifier2D.new()
+	add_child(vis)
+	vis.screen_entered.connect(func():
+		_can_fire = true
+		# Force immediate shot when first seen
+		_fire_timer = 0.0
+	)
+	vis.screen_exited.connect(func():
+		_can_fire = false
+	)
+
 func _process(delta: float) -> void:
 	super._process(delta)
 
@@ -54,13 +69,14 @@ func _process(delta: float) -> void:
 		var hover_offset := sin(_hover_time * TAU * HoverFrequency) * HoverAmplitude
 		position.y = clamp(_screen_size.y / 2.0 + hover_offset, 0.0, _screen_size.y)
 
-		# Fire spiral bullets
+	# Fire whenever visible (even while entering)
+	if _can_fire and _bullet_scene:
 		_fire_timer -= delta
 		if _fire_timer <= 0.0:
 			_fire_timer += FireInterval
 			_shoot_spiral()
 
-		_angle_deg = fmod(_angle_deg + AngularVelocity * delta, 360.0)
+	_angle_deg = fmod(_angle_deg + AngularVelocity * delta, 360.0)
 
 func _shoot_spiral() -> void:
 	if not _bullet_scene:
@@ -76,6 +92,12 @@ func _shoot_spiral() -> void:
 			if bullet.has_method("set"):
 				bullet.set("Angle", angle_deg)
 				bullet.set("Speed", BulletSpeed)
+				if IsHomingBoss:
+					bullet.set("Homing", true)
+					bullet.set("TurnSpeed", HomingTurnSpeed)
+			# Tint boss bullets blue for visual distinction
+			if bullet.has_method("set"):
+				bullet.set("modulate", Color(0.2, 0.6, 1.0, 1.0))
 			get_tree().current_scene.add_child(bullet)
 
 func _on_area_entered(area: Area2D) -> void:

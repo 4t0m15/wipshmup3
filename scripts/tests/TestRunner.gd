@@ -30,6 +30,7 @@ func _run() -> void:
 	await _test_boss_spiral_spawns_bullets()
 	await _test_boss_z_spiral_spawns_bullets()
 	await _test_game_manager_spawns_and_restart()
+	await _test_game_manager_spawns_boss2_fallback()
 
 # --- Helpers ---
 func _add_to_scene(n: Node) -> void:
@@ -140,4 +141,22 @@ func _test_game_manager_spawns_and_restart() -> void:
 	else:
 		_log_fail("gm game over set")
 	# Cleanup
+	_remove_from_scene(gm)
+
+func _test_game_manager_spawns_boss2_fallback() -> void:
+	var gm := preload("res://scripts/GameManager.gd").new()
+	_add_to_scene(gm)
+	# Ensure no explicit BossScene2 is set so fallback loads
+	gm.BossScene2 = null
+	# Force immediate spawn
+	gm._boss2_spawned = false
+	gm._boss2_spawn_timer = 0.0
+	# Trigger process once; should attempt spawn
+	gm._process(0.016)
+	await _yield_frames(1)
+	var bosses := get_tree().get_nodes_in_group("boss")
+	if bosses.size() >= 1:
+		_log_pass("gm spawns boss2 via fallback")
+	else:
+		_log_fail("gm spawns boss2 via fallback", "no node in 'boss' group found")
 	_remove_from_scene(gm)

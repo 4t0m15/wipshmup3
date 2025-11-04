@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
-size = Vector2(80, 80)
+size = Vector2(68, 68)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("pause_control")
@@ -211,6 +211,7 @@ BulletScene = ExtResource("12_mountain")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(43, 49)
+scale = Vector2(0.85, 0.85)
 sprite_frames = SubResource("SpriteFrames_7dm0k")
 animation = &"left_right"
 metadata/_edit_group_ = true
