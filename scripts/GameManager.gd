@@ -52,6 +52,7 @@ func _process(delta: float) -> void:
 		_spawn_timer = SpawnRate
 		_spawn_enemy()
 
+	# Boss 1 spawns on its own timer when there is no active boss
 	if not _boss_spawned and not _has_active_boss():
 		_boss_spawn_timer -= delta
 		if _boss_spawn_timer <= 0.0:
@@ -60,15 +61,13 @@ func _process(delta: float) -> void:
 			else:
 				_boss_spawn_timer = 1.0
 
-	if not _boss2_spawned and not _has_active_boss():
-		_boss2_spawn_timer -= delta
-		if _boss2_spawn_timer <= 0.0:
-			# Only mark spawned if we actually succeeded spawning
-			if _spawn_boss2():
-				_boss2_spawned = true
-			else:
-				# Retry again in a short while if spawning failed (e.g., wrong resource path)
-				_boss2_spawn_timer = 1.0
+	# Boss 2 spawns immediately after Boss 1 is defeated (no active boss remains)
+	if _boss_spawned and not _boss2_spawned and not _has_active_boss():
+		if _spawn_boss2():
+			_boss2_spawned = true
+		else:
+			# Retry again soon if spawning failed
+			_boss2_spawn_timer = 1.0
 
 func _spawn_enemy() -> void:
 	if not EnemyScene:
